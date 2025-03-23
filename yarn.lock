@@ -1338,6 +1338,54 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue-youtube/component@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@vue-youtube/component@npm:0.0.6"
+  dependencies:
+    "@vue-youtube/core": "npm:0.0.6"
+    "@vue-youtube/shared": "npm:0.0.6"
+    vue-demi: "npm:*"
+  peerDependencies:
+    "@vue/composition-api": ^1.7.2
+    vue: ^2.7.0 || >=3.0.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  checksum: 10c0/62f4709f769d060eae346a9b8120df343e80c7238953a73a4877dfb621d59118e96769945fbb362e2d6ba4b14bc4c838512c57f7f594fda91d06f1891106dd2b
+  languageName: node
+  linkType: hard
+
+"@vue-youtube/core@npm:0.0.6, @vue-youtube/core@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@vue-youtube/core@npm:0.0.6"
+  dependencies:
+    "@vue-youtube/shared": "npm:0.0.6"
+    vue-demi: "npm:latest"
+  peerDependencies:
+    "@vue/composition-api": ^1.7.2
+    vue: ^2.7.0 || >=3.0.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  checksum: 10c0/67a7110c3d637f6c77da57273e9c650e1ae3a94582eb00f04b66745e8fe98fb8174dd6606f7f94e5685e8d30e72e5c03a739dbf4a23018717da267036f6ee535
+  languageName: node
+  linkType: hard
+
+"@vue-youtube/shared@npm:0.0.6":
+  version: 0.0.6
+  resolution: "@vue-youtube/shared@npm:0.0.6"
+  dependencies:
+    vue-demi: "npm:latest"
+  peerDependencies:
+    "@vue/composition-api": ^1.7.2
+    vue: ^2.7.0 || >=3.0.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  checksum: 10c0/22f4351b1bc077c0bf5a0a4aeac2ab3ff40db8a9b5946cd1b6df4ab6c1ec0ab6058c348ff001a775ad252fcc146c7422c4dd0646aed110e8611aeb5e9ba04868
+  languageName: node
+  linkType: hard
+
 "@vue/babel-helper-vue-transform-on@npm:1.4.0":
   version: 1.4.0
   resolution: "@vue/babel-helper-vue-transform-on@npm:1.4.0"
@@ -2992,6 +3040,8 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.2.3"
     "@vitejs/plugin-vue-jsx": "npm:^4.1.2"
     "@vitest/eslint-plugin": "npm:1.1.38"
+    "@vue-youtube/component": "npm:^0.0.6"
+    "@vue-youtube/core": "npm:^0.0.6"
     "@vue/eslint-config-prettier": "npm:^10.2.0"
     "@vue/eslint-config-typescript": "npm:^14.5.0"
     "@vue/test-utils": "npm:^2.4.6"
@@ -4847,6 +4897,22 @@ __metadata:
   version: 2.2.8
   resolution: "vue-component-type-helpers@npm:2.2.8"
   checksum: 10c0/c1dfd755ddee15d38057404f101ee607757f88de18e0dd03ad2677be7b0688d86e79e9dab54df9800347abe9826246fc4abbcb54e7827d9289808ba288347bfd
+  languageName: node
+  linkType: hard
+
+"vue-demi@npm:*, vue-demi@npm:latest":
+  version: 0.14.10
+  resolution: "vue-demi@npm:0.14.10"
+  peerDependencies:
+    "@vue/composition-api": ^1.0.0-rc.1
+    vue: ^3.0.0-0 || ^2.6.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  bin:
+    vue-demi-fix: bin/vue-demi-fix.js
+    vue-demi-switch: bin/vue-demi-switch.js
+  checksum: 10c0/a9ed8712fa36d01bc13c39757f95f30cebf42d557b99e94bff86d8660c81f2911b41220f7affc023d1ffcc19e13999e4a83019991e264787cca2c616e83aea48
   languageName: node
   linkType: hard
 

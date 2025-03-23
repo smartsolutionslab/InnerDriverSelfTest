@@ -1,7 +1,19 @@
 <script setup lang="ts">
+import { YoutubeIframe } from '@vue-youtube/component'
+import { ref } from 'vue'
+
 defineProps<{
   msg: string
 }>()
+
+const player = ref()
+
+const onReady = () => {
+  if (player.value) {
+    alert('Im ready')
+    player.value?.value?.togglePlay()
+  }
+}
 </script>
 
 <template>
@@ -12,6 +24,7 @@ defineProps<{
       <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
+    <youtube-iframe video-id="jdOkU48x9OE" ref="player" @ready="onReady" />
   </div>
 </template>
 
