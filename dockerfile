@@ -1,23 +1,37 @@
-# Use the node image from official Docker Hub
-FROM node:22.14.0-alpine3.13 AS build-stage
-# set the working directory
-WORKDIR /app
-# Copy the working directory in the container
-COPY package*.json ./
-# Install the project dependencies
-RUN yarn install
-# Copy the rest of the project files to the container
-COPY . .
-# Build the Vue.js application to the production mode to dist folder
-RUN yarn build
-# Use the lightweight Nginx image from the previous stage for the nginx container
-FROM nginx:stable-alpine AS production-stage
-# Copy the build application from the previous stage to the Nginx container
-COPY - from=build-stage /app/dist /usr/share/nginx/html
-# Copy the nginx configuration file
-COPY  nginx/default.conf  /etc/nginx/nginx.conf
+# --- Build Stage ---
+FROM node:22-alpine AS build
 
-# Expose the port 80
+# Set working directory
+WORKDIR /app
+
+# Enable corepack
+RUN corepack enable
+
+# Copy package files and installieren von Yarn
+COPY package.json yarn.lock ./
+RUN yarn install
+
+# Copy the entire project and build it
+COPY . .
+RUN yarn build
+
+# --- Production Stage ---
+FROM nginx:alpine
+
+# Remove default nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built files from the previous stage
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Optional: Custom nginx config (if you have one)
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80
 EXPOSE 80
-# Start Nginx to serve the application
+
+# Run Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
+    
+    
+    
